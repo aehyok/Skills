@@ -1,0 +1,4 @@
+interface:
+  display_name: "WeChat Video Downloader"
+  short_description: "Download videos embedded in WeChat Official Account articles."
+  default_prompt: "Use $wechat-video-downloader to download videos from this WeChat Official Account article URL."
