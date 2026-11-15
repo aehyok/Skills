@@ -1,6 +1,6 @@
 # Skills
 
-个人整理的 Claude Code / Agent Skills 合集，每个目录是一个独立的 skill（入口为 `SKILL.md`）。
+个人使用的 Claude Code / Agent Skills 合集，每个目录是一个独立的 skill（入口为 `SKILL.md`）。
 
 | Skill | 用途 |
 | --- | --- |
