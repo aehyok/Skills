@@ -9,11 +9,11 @@ description: Download videos embedded in WeChat Official Account articles. Use w
 
 Use `scripts/download_wechat_videos.py` from this skill directory.
 
-Typical commands:
+Typical commands (macOS / Linux; on Windows use `python` and the same forward-slash paths also work):
 
-```powershell
-python skills\wechat-video-downloader\scripts\download_wechat_videos.py "https://mp.weixin.qq.com/s/..." --output downloads\wechat
-python skills\wechat-video-downloader\scripts\download_wechat_videos.py "https://mp.weixin.qq.com/s/..." --vid wxv_4537390665495953415 --output downloads\wechat
+```bash
+python3 skills/wechat-video-downloader/scripts/download_wechat_videos.py "https://mp.weixin.qq.com/s/..." --output downloads/wechat
+python3 skills/wechat-video-downloader/scripts/download_wechat_videos.py "https://mp.weixin.qq.com/s/..." --vid wxv_4537390665495953415 --output downloads/wechat
 ```
 
 The script prints JSON with discovered videos, resolved mp4 URLs, and downloaded file paths.
@@ -22,7 +22,7 @@ The script prints JSON with discovered videos, resolved mp4 URLs, and downloaded
 
 1. Run the script with the article URL.
 2. If the user gave a specific `wxv_...` id, pass it with `--vid`.
-3. Save outputs in a project-local directory such as `downloads\wechat` unless the user requested another path.
+3. Save outputs in a project-local directory such as `downloads/wechat` unless the user requested another path.
 4. Verify downloads with `ffprobe` when available, especially if the file is unexpectedly small.
 
 ## How It Works
@@ -37,7 +37,8 @@ The script:
 ## Requirements
 
 - Python with `requests`.
-- For the runtime fallback: `selenium` and installed Chrome or Edge.
+- For the runtime fallback: `selenium` and installed Chrome or Edge. Install with `pip install requests selenium`.
+- Chrome/Edge is auto-detected in standard Windows, macOS (`/Applications`), and Linux (`PATH`) locations. For a non-standard install, set `CHROME_BIN` to the browser executable.
 - `ffprobe` is optional and only needed for extra validation.
 
 If Selenium or a browser is unavailable, report that direct API resolution failed and browser runtime capture is required.

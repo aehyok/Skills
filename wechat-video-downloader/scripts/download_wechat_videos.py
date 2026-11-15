@@ -160,11 +160,15 @@ def browser_binary() -> str | None:
         r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe",
         r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
         r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
+        "/Applications/Chromium.app/Contents/MacOS/Chromium",
+        str(Path.home() / "Applications/Google Chrome.app/Contents/MacOS/Google Chrome"),
     ]
     for candidate in candidates:
         if candidate and Path(candidate).exists():
             return candidate
-    for name in ["chrome", "msedge", "chromium"]:
+    for name in ["chrome", "google-chrome", "google-chrome-stable", "msedge", "microsoft-edge", "chromium", "chromium-browser"]:
         found = shutil.which(name)
         if found:
             return found
